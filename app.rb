@@ -10,3 +10,8 @@ end
 
 class Comment <ActiveRecord::Base
 end
+
+get '/' do 
+
+	erb :posts
+end
