@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[7.1]
       c.text :content
       c.text :author
       c.integer :post_id
-
+      
       c.timestamps
     end
   end
