@@ -1,1 +1,9 @@
 <h2>Latest Posts</h2>
+<% @posts.each do |post| %>
+	<p><%= post.content %></p>
+	<span style="font-size: 85%; color: #990;">Author: <%= post.author %></span><br>
+	<span style="font-size: 75%; color: #999;">Added at: <%= post.created_at %></span><br><br>
+	<a href="/post/<%= post.id %>">Comments</a>
+	<hr>
+<% end %>
+
