@@ -15,3 +15,15 @@ get '/' do
 
 	erb :posts
 end
+
+get '/new' do 
+
+	erb :new
+end
+
+post '/new' do
+	@p = Post.new params[:post] 
+
+	erb 'You typed post' 
+
+end
