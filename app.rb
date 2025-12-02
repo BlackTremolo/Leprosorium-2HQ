@@ -32,8 +32,8 @@ post '/new' do
 	if @p.save
 		erb 'You typed post'
 	else
-		@error = @c.errors.full_messages.first
-		erb :visit	
+		@error = @p.errors.full_messages.first
+		erb :new	
 	end
 end
 
