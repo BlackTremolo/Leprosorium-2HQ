@@ -16,7 +16,8 @@ class Comment <ActiveRecord::Base
 end
 
 get '/' do 
-
+	@posts = Post.all
+	
 	erb :posts
 end
 
@@ -34,4 +35,9 @@ post '/new' do
 		@error = @c.errors.full_messages.first
 		erb :visit	
 	end
+end
+
+get '/post/:id' do 
+
+	erb :post
 end
