@@ -1,14 +1,20 @@
 <h3>Post page</h3>
 <div>	
-	<p><%= @post.content %></p>
-	<span style="font-size: 85%; color: #990;">Author: <%= @post.author %></span><br>
-	<span style="font-size: 75%; color: #999;">Added at: <%= @post.created_at %></span><br><br>
+	<p><%= $post.content %></p>
+	<span style="font-size: 85%; color: #990;">Author: <%= $post.author %></span><br>
+	<span style="font-size: 75%; color: #999;">Added at: <%= $post.created_at %></span><br><br>
 </div>
 
 <div>
-	<form action="/post/<%= @post.id %>" method="POST">
-		<label class="form-label">Type comment:</label><br>
-		<textarea name="comment" class="form-control" rows="6"></textarea>
+	<form action="/post/<%= $post.id %>" method="POST">
+		<div>
+			<label class="form-label">Type authorname of comment</label>
+      		<input name="comment[author]" type="text"  class="form-control">
+		</div>
+		<div>
+			<label class="form-label">Type comment:</label><br>
+			<textarea name="comment[content]" class="form-control" rows="6"></textarea>
+		</div>
 		<br>
 		<button type="submit" class="btn btn-primary">Add comment</button>
 	</form>

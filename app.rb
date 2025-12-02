@@ -15,6 +15,9 @@ class Comment <ActiveRecord::Base
 	validates :content, presence: true, length: {minimum: 1}
 end
 
+# before do 
+# 	@c = Client.new
+# end
 get '/' do 
 	@posts = Post.all
 	
@@ -38,7 +41,23 @@ post '/new' do
 end
 
 get '/post/:id' do 
-	@post = Post.find(params[:id])
+	$post = Post.find(params[:id])
+
+	 @c = Comment.new
+	 @c.post_id = params[:id]  
 	
 	erb :post
+end
+
+post '/post/:id' do 
+	$post
+	@c = Comment.new params[:comment]
+	@c.post_id = params[:id]  
+
+	if @c.save
+		erb :post
+	else
+		@error = @c.errors.full_messages.first
+		erb :post	
+	end
 end
